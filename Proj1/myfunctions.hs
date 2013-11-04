@@ -16,6 +16,9 @@ main = do
     incRef var 
     val <- readIORef var
     hPutStr stdout (show val)
+    hPutStr stdout "\n"
+    hPutStr stdout (show (doubleMe 2))
+    hPutStr stdout "\n"
     hPutStr stdout (show (is_zero_or_one 1))
 
 doubleMe :: Num a => a -> a
