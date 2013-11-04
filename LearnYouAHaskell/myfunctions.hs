@@ -86,3 +86,26 @@ cylinder r h =
     let sideArea = 2 * pi * r * h  
         topArea = pi * r ^2  
     in  sideArea + 2 * topArea 
+
+calcBmis2 :: (RealFloat a) => [(a, a)] -> [a]  
+calcBmis2 xs = [bmi | (w, h) <- xs, let bmi = w / h ^ 2]  
+
+
+head2 :: [a] -> a  
+head2 [] = error "No head for empty lists!"  
+head2 (x:_) = x  
+
+head3 :: [a] -> a  
+head3 xs = case xs of [] -> error "No head for empty lists!"  
+                      (x:_) -> x  
+
+describeList :: [a] -> String  
+describeList xs = "The list is " ++ case xs of [] -> "empty."  
+                                               _:[] -> "a singleton list."   
+                                               _ -> "a longer list."  
+
+describeList2 :: [a] -> String  
+describeList2 xs = "The list is " ++ what xs  
+    where what [] = "empty."  
+          what [_] = "a singleton list."  
+          what _ = "a longer list."  
